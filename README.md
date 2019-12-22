@@ -53,7 +53,7 @@ BibTeXを使っているので，
 
 https://texwiki.texjp.org/?Make#b022f4c0
 
-上記のサイトで各自OSに合わせてMakefileを実行できる環境を作る。
+上記のサイトで各自OSに合わせて`Makefile`を実行できる環境を作る。
 あとはコマンドで
 
 	$ cd (texファイルがあるフォルダー)

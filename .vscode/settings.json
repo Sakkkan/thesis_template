@@ -1,0 +1,41 @@
+{
+	"latex-workshop.latex.tools": [
+		{
+			"name":"ptex2pdf (uplatex)",
+			"command": "ptex2pdf",
+			"args": [
+				"-l",
+				"-u",
+				"-ot",
+				"-kanji=utf8 -synctex=1",
+				"%DOC%"
+			]
+		},
+		{
+			"command": "pbibtex",
+            "args": [
+                "-kanji=utf8",
+                "%DOCFILE%"
+            ],
+            "name": "pbibtex"
+		},
+		{
+			"command": "dvipdfmx",
+			"args": [
+				"%DOCFILE%.dvi"
+			],
+			"name": "dvipdfmx"
+		}
+	],
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "upLaTeX & pBibTeX",
+			"tools": [
+				"ptex2pdf (uplatex)",
+				"pbibtex",
+				"ptex2pdf (uplatex)",
+				"ptex2pdf (uplatex)"
+			]
+		},
+	]
+}

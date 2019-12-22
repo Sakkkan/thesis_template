@@ -63,47 +63,10 @@ https://texwiki.texjp.org/?Make#b022f4c0
 二条項BSDライセンス（BSD 2-clause License）です．
 
 ## jsonファイルにエンコード内容をまとめる ##
-{  
-	"latex-workshop.latex.tools": [  
-		{  
-			"name":"ptex2pdf (uplatex)",  
-			"command": "ptex2pdf",  
-			"args": [  
-				"-l",  
-				"-u",  
-				"-ot",  
-				"-kanji=utf8 -synctex=1",  
-				"%DOC%"  
-			]  
-		},  
-		{  
-			"command": "pbibtex",  
-            "args": [  
-                "-kanji=utf8",  
-                "%DOCFILE%"  
-            ],  
-            "name": "pbibtex"  
-		},  
-		{  
-			"command": "dvipdfmx",  
-			"args": [  
-				"%DOCFILE%.dvi"  
-			],  
-			"name": "dvipdfmx"  
-		}  
-	],  
-	"latex-workshop.latex.recipes": [  
-		{  
-			"name": "upLaTeX & pBibTeX",  
-			"tools": [  
-				"ptex2pdf (uplatex)",  
-				"pbibtex",  
-				"ptex2pdf (uplatex)",  
-				"ptex2pdf (uplatex)"  
-			]  
-		},  
-	]  
-}  
+
+	.vscode/settings.json
+
+上記のjsonファイルに記入しているので、VScodeを使っている人はそのまま実行できる。
 
 ## その他よび追記 ##
 PROBLEMSのWarningにおいて、１つだけ削除できなかったので記述しておく。

@@ -1,0 +1,28 @@
+% 画像ファイルをfigureディレクリからも探す
+\graphicspath{{figure/}}
+
+% 定義，補題，定理
+\theorembodyfont{\upshape}
+\newtheorem{definition}{定義}[chapter]
+\newtheorem{lemma}{補題}[chapter]
+\newtheorem{theorem}{定理}[chapter]
+
+% 証明
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\upshape}
+\theoremseparator{：}
+\theoremsymbol{$\square$}
+\newtheorem{prf}{証明}
+\newenvironment{proof}
+{\begin{prf}}
+{\mbox{} \end{prf}}
+
+
+% \kintou command is Copyright (c) 2013 Haruhiko Okumura
+% Licensed under the BSD 2-Clause License
+\newcommand{\kintou}[2]{%
+\leavevmode
+\hbox to #1{%
+	\kanjiskip=0pt plus 1fill minus 1fill
+	\xkanjiskip=\kanjiskip
+	#2}}

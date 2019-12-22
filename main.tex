@@ -1,0 +1,141 @@
+\documentclass[a4paper, 12pt, openany, uplatex]{jsbook}
+% uplatex オプションを指定し、ユニコード対応に。ただし、uplatex&pbibtexでコンパイルすること。
+% onesideはすべてのページが同じ体裁で出力される
+% twosideは（両面印刷を前提として）、偶数ページと奇数ページが異なる体裁で出力される
+
+% 修論本体と表紙で共通で必要となる設定
+\input{setting/preamble}
+
+% すべてのTS1コマンドを有効
+\usepackage[full]{textcomp}
+% 画像の取り扱いに必要
+\usepackage[dvipdfmx]{graphicx,color}
+% 表でセルを複数列で結合する
+\usepackage{multicol}
+% 数式の機能を拡張
+\usepackage{amsmath,amssymb}
+\usepackage[amsmath,thmmarks]{ntheorem}
+% Time系フォント
+\usepackage{newtxtext}
+% 英語のフォント指定 Helvetica
+\usepackage{helvet}
+% 太字のベクトル
+\usepackage{bm}
+% 複数の図を表みたいにまとめる
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 行番号を表示する。添削時のみに使い、事務提出版ではコメントアウトする %
+\usepackage{lineno}
+\linenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF内で外部リンクや文書内リンクを生成したい場合に使う
+\usepackage[dvipdfmx]{hyperref}
+% PDF内のしおりの文字化けを防ぐ
+\usepackage{pxjahyper}
+% フォントサイズの警告を消す
+\usepackage{lmodern}
+% フォントのエラーを消す
+\DeclareFontShape{JT2}{hgt}{m}{it}{<->ssub*hgt/m/n}{}
+\DeclareFontShape{JY2}{hgt}{m}{it}{<->ssub*hgt/m/n}{}
+% 細かいエラーや古いパッケージを教えてくれる
+\RequirePackage[l2tabu, orthodox]{nag}
+% mythesis.styを使用する
+\usepackage{mythesis}
+
+% newcommand を使うことで、繰り返し使う長ったらしい入力を簡単にすることができる
+\makeatletter
+\newcommand{\ion}[2]{#1$\;${\small\rmfamily\@Roman{#2}}\relax} % テンプレで入っていたもの。消していい
+\def\mojiparline#1{
+	\newcounter{mpl}
+	\setcounter{mpl}{#1}
+	\@tempdima=\linewidth
+	\advance\@tempdima by-\value{mpl}zw
+	\addtocounter{mpl}{-1}
+	\divide\@tempdima by \value{mpl}
+	\advance\kanjiskip by\@tempdima
+	\advance\parindent by\@tempdima
+}
+\makeatother
+\def\linesparpage#1{
+	\baselineskip=\textheight
+	\divide\baselineskip by #1
+}
+% テンプレで入っていたもの。消していい
+\newcommand{\HI}{\mbox{\ion{H}{1}}} % 中性原子ガス（HI 領域）の例
+\newcommand{\bs}{\symbol{92}} % backslash
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\ured}[1]{\textcolor{red}{\underline{\textcolor{black}{#1}}}}
+\newcommand{\ugreen}[1]{\textcolor{green}{\underline{\textcolor{black}{#1}}}}
+\newcommand{\ublue}[1]{\textcolor{blue}{\underline{\textcolor{black}{#1}}}}
+
+
+%%------------------------------------------------------------
+%% pdfに記載される内容のメイン
+%%------------------------------------------------------------
+
+% 氏名などの情報が入っているファイル。各自で編集。
+\input{parts/AuthorInfo}
+
+\begin{document}
+
+% 一行あたり文字数の指定
+\mojiparline{40}
+% 1ページあたり行数の指定
+\linesparpage{30}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%       表紙，目次     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+\maketitle
+
+\thispagestyle{plain}
+\addtocounter{page}{-1}
+\newpage
+
+\mbox{}
+\thispagestyle{plain}
+\addtocounter{page}{-1}
+
+\newpage
+
+\input{parts/0-Abstract}
+
+% 目次
+\tableofcontents
+
+% 図目次
+\listoffigures
+
+% 表目次
+\listoftables
+
+% 紙に印刷して校正するために行間を開ける
+% \setlength{\baselineskip}{1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%       本文           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\input{parts/1-Introduction}
+\input{parts/2-Review}
+\input{parts/3-Method}
+\input{parts/4-ExperimentalMethod}
+\input{parts/5-ExperimentalResult}
+\input{parts/6-Discussion}
+\input{parts/7-Conclusion}
+\input{parts/8-Appendix}
+\input{parts/9-Acknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   謝辞，参考文献，研究業績    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\input{parts/backmatter1}
+\input{parts/backmatter2}
+
+\end{document}

@@ -1,0 +1,48 @@
+\makeatletter
+
+\def\StudentIdNumber#1{\def\@StudentIdNumber{#1}} % 学籍番号
+\def\reiwa#1{\def\@reiwa{#1}} % 令和での年度
+\def\title#1{\def\@title{#1}} % タイトル
+\def\entitle#1{\def\@entitle{#1}} % 英語タイトル
+
+\renewcommand{\maketitle}{
+	\begin{titlepage}
+		\let\footnotesize\small
+		\let\footnoterule\relax
+		\let\footnote\thanks
+		\begin{center}
+			\vspace{4cm}
+			{\Huge 令和{\@reiwa}年度　修士論文\\}
+
+			\vspace*{2cm}
+			{\LARGE \@title}\\
+			{\large \@entitle}
+
+			\vspace*{2cm}
+			\fontsize{14.4pt}{30pt}\selectfont
+			九州工業大学大学院　\\
+			生命体工学研究科　人間知能システム工学専攻\\
+
+			\vspace{1cm}
+			\begin{tabular}{ll}
+				講座名&   人間知能創成講座\\
+				研究室&   柴田\,研究室\\
+				学籍番号& \@StudentIdNumber\\ 
+				氏名&     \@author
+			\end{tabular}
+
+		\end{center}%
+		\par
+		\@thanks\vfil\null
+	\end{titlepage}%
+	\setcounter{footnote}{0}%
+	\global\let\thanks\relax
+	\global\let\maketitle\relax
+	\global\let\@thanks\@empty
+	\global\let\@author\@empty
+	\global\let\@title\@empty
+	\global\let\title\relax
+	\global\let\author\relax
+	\global\let\and\relax
+}
+\makeatother

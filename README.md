@@ -1,6 +1,6 @@
 # 修士論文テンプレート #
 
-参考にさせていただいたサイト
+参考にさせていただいたサイト  
 修士論文 LaTeX テンプレート｜名古屋大学宇宙地球環境研究所の理学系修士学生用
 [Webサイト](https://github.com/akira-okumura/MasterThesisTemplate)
 

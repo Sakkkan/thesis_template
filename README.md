@@ -66,7 +66,7 @@ https://texwiki.texjp.org/?Make#b022f4c0
 
 	.vscode/settings.json
 
-上記のjsonファイルに記入しているので、VScodeを使っている人はそのまま実行できる。
+上記の`settings.json`に記入しているので、VScodeを使っている人はそのまま実行できる。
 
 ## その他よび追記 ##
 PROBLEMSのWarningにおいて、１つだけ削除できなかったので記述しておく。

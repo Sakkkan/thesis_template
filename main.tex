@@ -43,10 +43,11 @@
 \RequirePackage[l2tabu, orthodox]{nag}
 % mythesis.styを使用する
 \usepackage{mythesis}
+% 複数行をコメント化
+\usepackage{comment}
 
 % newcommand を使うことで、繰り返し使う長ったらしい入力を簡単にすることができる
 \makeatletter
-\newcommand{\ion}[2]{#1$\;${\small\rmfamily\@Roman{#2}}\relax} % テンプレで入っていたもの。消していい
 \def\mojiparline#1{
 	\newcounter{mpl}
 	\setcounter{mpl}{#1}
@@ -62,13 +63,6 @@
 	\baselineskip=\textheight
 	\divide\baselineskip by #1
 }
-% テンプレで入っていたもの。消していい
-\newcommand{\HI}{\mbox{\ion{H}{1}}} % 中性原子ガス（HI 領域）の例
-\newcommand{\bs}{\symbol{92}} % backslash
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\ured}[1]{\textcolor{red}{\underline{\textcolor{black}{#1}}}}
-\newcommand{\ugreen}[1]{\textcolor{green}{\underline{\textcolor{black}{#1}}}}
-\newcommand{\ublue}[1]{\textcolor{blue}{\underline{\textcolor{black}{#1}}}}
 
 
 %%------------------------------------------------------------
@@ -124,12 +118,11 @@
 \input{parts/1-Introduction}
 \input{parts/2-Review}
 \input{parts/3-Method}
-\input{parts/4-ExperimentalMethod}
-\input{parts/5-ExperimentalResult}
-\input{parts/6-Discussion}
-\input{parts/7-Conclusion}
-\input{parts/8-Appendix}
-\input{parts/9-Acknowledgments}
+\input{parts/4-Experiment}
+\input{parts/5-Discussion}
+\input{parts/6-Conclusion}
+\input{parts/7-Appendix}
+\input{parts/8-Acknowledgments}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%   謝辞，参考文献，研究業績    %%
